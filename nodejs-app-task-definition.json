@@ -1,35 +1,19 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:672009149975:task-definition/myfamily:4",
+    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:672009149975:task-definition/tdf:1",
     "containerDefinitions": [
         {
             "name": "nodejsapp",
-            "image": "672009149975.dkr.ecr.ap-south-1.amazonaws.com/nodejsapp:latest",
-            "cpu": 0,
+            "image": "672009149975.dkr.ecr.ap-south-1.amazonaws.com/hello-repository:latest",
+            "cpu": 1024,
+            "memory": 1024,
+            "memoryReservation": 1024,
             "portMappings": [
                 {
                     "name": "myport",
-                    "containerPort": 80,
-                    "hostPort": 80,
-                    "protocol": "tcp",
-                    "appProtocol": "http"
-                },
-                {
-                    "name": "myport1",
-                    "containerPort": 22,
-                    "hostPort": 22,
-                    "protocol": "tcp"
-                },
-                {
-                    "name": "myport2",
                     "containerPort": 5000,
                     "hostPort": 5000,
-                    "protocol": "tcp"
-                },
-                {
-                    "name": "myport3",
-                    "containerPort": 443,
-                    "hostPort": 443,
-                    "protocol": "tcp"
+                    "protocol": "tcp",
+                    "appProtocol": "http"
                 }
             ],
             "essential": true,
@@ -42,7 +26,7 @@
                 "logDriver": "awslogs",
                 "options": {
                     "awslogs-create-group": "true",
-                    "awslogs-group": "/ecs/myfamily",
+                    "awslogs-group": "/ecs/tdf",
                     "awslogs-region": "ap-south-1",
                     "awslogs-stream-prefix": "ecs"
                 },
@@ -50,11 +34,10 @@
             }
         }
     ],
-    "family": "myfamily",
+    "family": "tdf",
     "taskRoleArn": "arn:aws:iam::672009149975:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::672009149975:role/ecsTaskExecutionRole",
-    "networkMode": "awsvpc",
-    "revision": 4,
+    "revision": 1,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -71,6 +54,9 @@
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
         },
         {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
+        },
+        {
             "name": "com.amazonaws.ecs.capability.task-iam-role"
         },
         {
@@ -80,27 +66,23 @@
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
         },
         {
-            "name": "ecs.capability.task-eni"
-        },
-        {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
         }
     ],
     "placementConstraints": [],
     "compatibilities": [
-        "EC2",
-        "FARGATE"
+        "EC2"
     ],
     "requiresCompatibilities": [
         "EC2"
     ],
-    "cpu": "2048",
-    "memory": "4096",
+    "cpu": "1024",
+    "memory": "3072",
     "runtimePlatform": {
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-02-09T04:53:55.013Z",
+    "registeredAt": "2024-02-11T14:18:42.612Z",
     "registeredBy": "arn:aws:iam::672009149975:user/seed",
     "tags": []
 }
