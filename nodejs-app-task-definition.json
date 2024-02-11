@@ -1,9 +1,9 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:672009149975:task-definition/tdf:2",
+    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:672009149975:task-definition/tdf:4",
     "containerDefinitions": [
         {
             "name": "nodejsapp",
-            "image": "672009149975.dkr.ecr.ap-south-1.amazonaws.com/nodejsapp:latest",
+            "image": "672009149975.dkr.ecr.ap-south-1.amazonaws.com/hello-repository:latest",
             "cpu": 1024,
             "memory": 1024,
             "memoryReservation": 1024,
@@ -34,7 +34,7 @@
     "family": "tdf",
     "taskRoleArn": "arn:aws:iam::672009149975:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::672009149975:role/ecsTaskExecutionRole",
-    "revision": 2,
+    "revision": 4,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -76,7 +76,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-02-11T14:40:39.333Z",
+    "registeredAt": "2024-02-11T14:58:29.368Z",
     "registeredBy": "arn:aws:iam::672009149975:user/seed",
     "tags": []
 }
