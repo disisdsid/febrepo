@@ -1,93 +1,95 @@
 {
-    "ipcMode": null,
-    "executionRoleArn": "arn:aws:iam::763857617563:role/ecsTaskExecutionRole",
-    "containerDefinitions": [
+  "taskDefinitionArn": "arn:aws:ecs:ap-south-1:672009149975:task-definition/tdf:7",
+  "containerDefinitions": [
       {
-        "dnsSearchDomains": null,
-        "environmentFiles": null,
-        "logConfiguration": null,
-        "entryPoint": [],
-        "portMappings": [
-          {
-            "hostPort": 5000,
-            "protocol": "tcp",
-            "containerPort": 5000
+          "name": "nodejsapp",
+          "image": "672009149975.dkr.ecr.ap-south-1.amazonaws.com/nodejsapp:latest",
+          "cpu": 1024,
+          "memory": 1024,
+          "portMappings": [
+              {
+                  "name": "myport",
+                  "containerPort": 5000,
+                  "hostPort": 5000,
+                  "protocol": "tcp",
+                  "appProtocol": "http"
+              }
+          ],
+          "essential": true,
+          "environment": [],
+          "environmentFiles": [],
+          "mountPoints": [],
+          "volumesFrom": [],
+          "ulimits": [],
+          "logConfiguration": {
+              "logDriver": "awslogs",
+              "options": {
+                  "awslogs-create-group": "true",
+                  "awslogs-group": "/ecs/tdf",
+                  "awslogs-region": "ap-south-1",
+                  "awslogs-stream-prefix": "ecs"
+              },
+              "secretOptions": []
           }
-        ],
-        "command": [],
-        "linuxParameters": null,
-        "cpu": 1,
-        "environment": [],
-        "resourceRequirements": null,
-        "ulimits": null,
-        "dnsServers": null,
-        "mountPoints": [],
-        "workingDirectory": null,
-        "secrets": null,
-        "dockerSecurityOptions": null,
-        "memory": 900,
-        "memoryReservation": null,
-        "volumesFrom": [],
-        "stopTimeout": null,
-        "image": "672009149975.dkr.ecr.ap-south-1.amazonaws.com/hello-repository:latest",
-        "startTimeout": null,
-        "firelensConfiguration": null,
-        "dependsOn": null,
-        "disableNetworking": null,
-        "interactive": null,
-        "healthCheck": null,
-        "essential": true,
-        "links": null,
-        "hostname": null,
-        "extraHosts": null,
-        "pseudoTerminal": null,
-        "user": null,
-        "readonlyRootFilesystem": null,
-        "dockerLabels": null,
-        "systemControls": null,
-        "privileged": null,
-        "name": "nodejs-app"
       }
-    ],
-    "placementConstraints": [],
-    "memory": null,
-    "taskRoleArn": "arn:aws:iam::763857617563:role/ecsTaskExecutionRole",
-    "compatibilities": [
-      "EXTERNAL",
-      "EC2"
-    ],
-    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:763857617563:task-definition/nodejs-app-task-definition:1",
-    "family": "tdf",
-    "requiresAttributes": [
+  ],
+  "family": "tdf",
+  "taskRoleArn": "arn:aws:iam::672009149975:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::672009149975:role/ecsTaskExecutionRole",
+  "networkMode": "awsvpc",
+  "revision": 7,
+  "volumes": [],
+  "status": "ACTIVE",
+  "requiresAttributes": [
       {
-        "targetId": null,
-        "targetType": null,
-        "value": null,
-        "name": "com.amazonaws.ecs.capability.ecr-auth"
+          "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
       },
       {
-        "targetId": null,
-        "targetType": null,
-        "value": null,
-        "name": "com.amazonaws.ecs.capability.task-iam-role"
+          "name": "ecs.capability.execution-role-awslogs"
       },
       {
-        "targetId": null,
-        "targetType": null,
-        "value": null,
-        "name": "ecs.capability.execution-role-ecr-pull"
+          "name": "com.amazonaws.ecs.capability.ecr-auth"
+      },
+      {
+          "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+      },
+      {
+          "name": "com.amazonaws.ecs.capability.task-iam-role"
+      },
+      {
+          "name": "ecs.capability.execution-role-ecr-pull"
+      },
+      {
+          "name": "ecs.capability.extensible-ephemeral-storage"
+      },
+      {
+          "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+      },
+      {
+          "name": "ecs.capability.task-eni"
+      },
+      {
+          "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
       }
-    ],
-    "pidMode": null,
-    "requiresCompatibilities": [
-      "EC2"
-    ],
-    "networkMode": null,
-    "runtimePlatform": null,
-    "cpu": null,
-    "revision": 1,
-    "status": "ACTIVE",
-    "inferenceAccelerators": null,
-    "proxyConfiguration": null,
-    "volumes": []
-  }
+  ],
+  "placementConstraints": [],
+  "compatibilities": [
+      "EC2",
+      "FARGATE"
+  ],
+  "requiresCompatibilities": [
+      "FARGATE"
+  ],
+  "cpu": "1024",
+  "memory": "3072",
+  "ephemeralStorage": {
+      "sizeInGiB": 25
+  },
+  "runtimePlatform": {
+      "cpuArchitecture": "X86_64",
+      "operatingSystemFamily": "LINUX"
+  },
+  "registeredAt": "2024-02-12T04:43:51.325Z",
+  "registeredBy": "arn:aws:iam::672009149975:user/seed",
+  "tags": []
+}
